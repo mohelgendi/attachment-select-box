@@ -1,0 +1,18 @@
+.myicon {
+  width: 1em;
+  height: 1em;
+  background-size: 100% 100% !important;
+  display: block;
+  &-up-arrow {
+    background: url("~@/assets/icons/up-arrow.svg") center center no-repeat;
+  }
+  &-plus {
+    background: url("~@/assets/icons/plus.svg") center center no-repeat;
+  }
+  &-minus {
+    background: url("~@/assets/icons/minus.svg") center center no-repeat;
+  }
+  &-empty {
+    background: url("~@/assets/icons/empty.svg") center center no-repeat;
+  }
+}

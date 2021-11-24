@@ -1,18 +1,34 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <attachment-select-box @selectionChanged="logValues" v-model="dataSource" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import AttachmentSelectBox from "../components/AttachmentSelectBox.vue";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    "attachment-select-box": AttachmentSelectBox,
+  },
+  data() {
+    return {
+      dataSource: [],
+    };
+  },
+  methods: {
+    logValues(value) {
+      if (value.deselectedItem) {
+        console.log("You removed: ", value?.deselectedItem?.name);
+      }
+      if (value.selectedItem) {
+        [...value.selectedItem].forEach((file) => {
+          console.log("You added: ", file.name);
+        });
+      }
+    },
+  },
+};
 </script>
+
+<style></style>
