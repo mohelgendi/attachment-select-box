@@ -48,16 +48,16 @@ export default {
       },
     },
   },
-  model: {
+  model: { //setting v-model to avoid broswer console warning about prop mutation
     prop: "dataSource",
     event: "listchange",
   },
-  computed: {
+  computed: { 
     listLocal: {
       get: function () {
         return this.dataSource;
       },
-      set: function (value) {
+      set: function (value) { // to update the parent data
         this.$emit("listchange", value);
       },
     },
@@ -71,16 +71,16 @@ export default {
     },
     fileDetector(e) {
       const files = e.target.files;
-      this.$emit("selectionChanged", {
+      this.$emit("selectionChanged", {//fire @selectionChanged
         selectedItem: files,
         deselectedItem: null,
       });
-      this.listLocal = [...this.listLocal, ...files];
+      this.listLocal = [...this.listLocal, ...files]; //kinda array concatenation
     },
     removeFile(index) {
       const removedFile = this.listLocal[index];
-      this.listLocal.splice(index, 1);
-      this.$emit("selectionChanged", {
+      this.listLocal.splice(index, 1); //exclude elem by index
+      this.$emit("selectionChanged", {//fire @selectionChanged
         selectedItem: null,
         deselectedItem: removedFile,
       });

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p class="center">Select files and watch the console...</p>
     <attachment-select-box @selectionChanged="logValues" v-model="dataSource" />
   </div>
 </template>
@@ -31,4 +32,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>
